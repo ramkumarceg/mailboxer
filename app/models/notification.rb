@@ -150,7 +150,7 @@ class Notification < ActiveRecord::Base
     unless self.subject.nil?
       self.subject = sanitize self.subject
     end
-    self.body = sanitize self.body
+    self.body = sanitize(self.body, :tags => %w(div b i li ol p span u ul br))
   end
 
   #Returns notified_object. DEPRECATED
